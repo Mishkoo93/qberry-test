@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Qberry Test API</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .php-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://127.0.0.1:8000";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.29.1.js"></script>
+
+    <script src="../docs/js/theme-default-3.29.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;php&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="php">php</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="booking-management">
+                    <a href="#booking-management">Booking management</a>
+                </li>
+                                    <ul id="tocify-subheader-booking-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="booking-management-GETapi-bookings">
+                        <a href="#booking-management-GETapi-bookings">Get all bookings by user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="booking-management-POSTapi-bookings">
+                        <a href="#booking-management-POSTapi-bookings">Create a booking.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="booking-management-GETapi-bookings--id-">
+                        <a href="#booking-management-GETapi-bookings--id-">Display booking.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="locations">
+                    <a href="#locations">Locations</a>
+                </li>
+                                    <ul id="tocify-subheader-locations" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="locations-GETapi-locations">
+                        <a href="#locations-GETapi-locations">Get all locations with free blocks</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="locations-POSTapi-locations-calculate">
+                        <a href="#locations-POSTapi-locations-calculate">Calculate cost and blocks</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: May 27 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://127.0.0.1:8000</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="booking-management">Booking management</h1>
+
+    <p>APIs for managing bookings users</p>
+
+            <h2 id="booking-management-GETapi-bookings">Get all bookings by user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-bookings">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/bookings',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bookings"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-bookings">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;data&quot;: [{&quot;id: 1, &quot;location&quot;: &quot;Уилмингтон (Северная Каролина)&quot;, &quot;temperature&quot;: -5, &quot;reserved_blocks&quot;: 10, &quot;reserved_to&quot;: &quot;2022-05-31&quot;, &quot;cost&quot;: 12.5, &quot;access_code&quot;: &quot;68iqeVTYcwKf&quot;},{&quot;id: 1, &quot;location&quot;: &quot;Уилмингтон (Северная Каролина)&quot;, &quot;temperature&quot;: -5, &quot;reserved_blocks&quot;: 10, &quot;reserved_to&quot;: &quot;2022-05-31&quot;, &quot;cost&quot;: 12.5, &quot;access_code&quot;: &quot;68iqeVTYcwKf&quot;}],
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-bookings" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-bookings"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-bookings"></code></pre>
+</span>
+<span id="execution-error-GETapi-bookings" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-bookings"></code></pre>
+</span>
+<form id="form-GETapi-bookings" data-method="GET"
+      data-path="api/bookings"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-bookings', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-bookings"
+                    onclick="tryItOut('GETapi-bookings');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-bookings"
+                    onclick="cancelTryOut('GETapi-bookings');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-bookings" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/bookings</code></b>
+        </p>
+                    </form>
+
+            <h2 id="booking-management-POSTapi-bookings">Create a booking.</h2>
+
+<p>
+</p>
+
+<p>Создание брони</p>
+
+<span id="example-requests-POSTapi-bookings">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/bookings',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'freeze_camera_id' =&gt; 20,
+            'temperature' =&gt; 0,
+            'blocks' =&gt; 13,
+            'days' =&gt; 4,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bookings"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "freeze_camera_id": 20,
+    "temperature": 0,
+    "blocks": 13,
+    "days": 4
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-bookings">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;data&quot;: {&quot;id: 1, &quot;location&quot;: &quot;Уилмингтон (Северная Каролина)&quot;, &quot;temperature&quot;: -5, &quot;reserved_blocks&quot;: 10, &quot;reserved_to&quot;: &quot;2022-05-31&quot;, &quot;cost&quot;: 12.5, &quot;access_code&quot;: &quot;68iqeVTYcwKf&quot;},
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-bookings" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-bookings"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-bookings"></code></pre>
+</span>
+<span id="execution-error-POSTapi-bookings" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-bookings"></code></pre>
+</span>
+<form id="form-POSTapi-bookings" data-method="POST"
+      data-path="api/bookings"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-bookings', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-bookings"
+                    onclick="tryItOut('POSTapi-bookings');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-bookings"
+                    onclick="cancelTryOut('POSTapi-bookings');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-bookings" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/bookings</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>freeze_camera_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="freeze_camera_id"
+               data-endpoint="POSTapi-bookings"
+               value="20"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>temperature</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="temperature"
+               data-endpoint="POSTapi-bookings"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least -30. Must not be greater than 0.</p>
+        </p>
+                <p>
+            <b><code>blocks</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="blocks"
+               data-endpoint="POSTapi-bookings"
+               value="13"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>days</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="days"
+               data-endpoint="POSTapi-bookings"
+               value="4"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 1. Must not be greater than 24.</p>
+        </p>
+        </form>
+
+            <h2 id="booking-management-GETapi-bookings--id-">Display booking.</h2>
+
+<p>
+</p>
+
+<p>Отобразить бронирование для входа с ключем доступа</p>
+
+<span id="example-requests-GETapi-bookings--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/bookings/8',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/bookings/8"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-bookings--id-">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;data&quot;: {&quot;id: 1, &quot;location&quot;: &quot;Уилмингтон (Северная Каролина)&quot;, &quot;temperature&quot;: -5, &quot;reserved_blocks&quot;: 10, &quot;reserved_to&quot;: &quot;2022-05-31&quot;, &quot;cost&quot;: 12.5, &quot;access_code&quot;: &quot;68iqeVTYcwKf&quot;},
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, booking not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Booking not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-bookings--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-bookings--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-bookings--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-bookings--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-bookings--id-"></code></pre>
+</span>
+<form id="form-GETapi-bookings--id-" data-method="GET"
+      data-path="api/bookings/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-bookings--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-bookings--id-"
+                    onclick="tryItOut('GETapi-bookings--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-bookings--id-"
+                    onclick="cancelTryOut('GETapi-bookings--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-bookings--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/bookings/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-bookings--id-"
+               value="8"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the booking.</p>
+            </p>
+                    </form>
+
+        <h1 id="locations">Locations</h1>
+
+    <p>APIs for managing with locations</p>
+
+            <h2 id="locations-GETapi-locations">Get all locations with free blocks</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-locations">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://127.0.0.1:8000/api/locations',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/locations"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-locations">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;location&quot;: &quot;Уилмингтон (Северная Каролина)&quot;,
+    &quot;free_blocks&quot;: 150
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-locations" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-locations"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-locations"></code></pre>
+</span>
+<span id="execution-error-GETapi-locations" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-locations"></code></pre>
+</span>
+<form id="form-GETapi-locations" data-method="GET"
+      data-path="api/locations"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-locations', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-locations"
+                    onclick="tryItOut('GETapi-locations');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-locations"
+                    onclick="cancelTryOut('GETapi-locations');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-locations" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/locations</code></b>
+        </p>
+                    </form>
+
+            <h2 id="locations-POSTapi-locations-calculate">Calculate cost and blocks</h2>
+
+<p>
+</p>
+
+<p>Возвращает freeze_camera_id подходящей камеры хранения или null в случае если
+подходящих камер не нашлось</p>
+
+<span id="example-requests-POSTapi-locations-calculate">
+<blockquote>Example request:</blockquote>
+
+
+<div class="php-example">
+    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://127.0.0.1:8000/api/locations/calculate',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'location_id' =&gt; 6,
+            'temperature' =&gt; 0,
+            'volume' =&gt; 11,
+            'days' =&gt; 22,
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/locations/calculate"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "location_id": 6,
+    "temperature": 0,
+    "volume": 11,
+    "days": 22
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-locations-calculate">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+ &quot;blocks&quot;: 4,
+ &quot;cost&quot;: 19.4,
+ &quot;availability&quot;: true,
+ &quot;freeze_camera_id&quot;: null|150,
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-locations-calculate" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-locations-calculate"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-locations-calculate"></code></pre>
+</span>
+<span id="execution-error-POSTapi-locations-calculate" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-locations-calculate"></code></pre>
+</span>
+<form id="form-POSTapi-locations-calculate" data-method="POST"
+      data-path="api/locations/calculate"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-locations-calculate', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-locations-calculate"
+                    onclick="tryItOut('POSTapi-locations-calculate');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-locations-calculate"
+                    onclick="cancelTryOut('POSTapi-locations-calculate');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-locations-calculate" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/locations/calculate</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>location_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="location_id"
+               data-endpoint="POSTapi-locations-calculate"
+               value="6"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>temperature</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="temperature"
+               data-endpoint="POSTapi-locations-calculate"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least -30. Must not be greater than 0.</p>
+        </p>
+                <p>
+            <b><code>volume</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="volume"
+               data-endpoint="POSTapi-locations-calculate"
+               value="11"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>days</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="days"
+               data-endpoint="POSTapi-locations-calculate"
+               value="22"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 1. Must not be greater than 24.</p>
+        </p>
+        </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="php">php</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>

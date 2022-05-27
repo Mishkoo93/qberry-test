@@ -1,0 +1,120 @@
+name: 'Booking management'
+description: |-
+
+  APIs for managing bookings users
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/bookings
+    metadata:
+      title: 'Get all bookings by user'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": [{"id: 1, "location": "Уилмингтон (Северная Каролина)", "temperature": -5, "reserved_blocks": 10, "reserved_to": "2022-05-31", "cost": 12.5, "access_code": "68iqeVTYcwKf"},{"id: 1, "location": "Уилмингтон (Северная Каролина)", "temperature": -5, "reserved_blocks": 10, "reserved_to": "2022-05-31", "cost": 12.5, "access_code": "68iqeVTYcwKf"}],
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/bookings
+    metadata:
+      title: 'Create a booking.'
+      description: 'Создание брони'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      freeze_camera_id:
+        name: freeze_camera_id
+        description: ''
+        required: false
+        example: 20
+        type: integer
+        custom: []
+      temperature:
+        name: temperature
+        description: 'Must be at least -30. Must not be greater than 0.'
+        required: false
+        example: 0
+        type: integer
+        custom: []
+      blocks:
+        name: blocks
+        description: ''
+        required: false
+        example: 13
+        type: integer
+        custom: []
+      days:
+        name: days
+        description: 'Must be at least 1. Must not be greater than 24.'
+        required: false
+        example: 4
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": {"id: 1, "location": "Уилмингтон (Северная Каролина)", "temperature": -5, "reserved_blocks": 10, "reserved_to": "2022-05-31", "cost": 12.5, "access_code": "68iqeVTYcwKf"},
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/bookings/{id}'
+    metadata:
+      title: 'Display booking.'
+      description: 'Отобразить бронирование для входа с ключем доступа'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": {"id: 1, "location": "Уилмингтон (Северная Каролина)", "temperature": -5, "reserved_blocks": 10, "reserved_to": "2022-05-31", "cost": 12.5, "access_code": "68iqeVTYcwKf"},
+          }
+        headers: []
+        description: '200, success'
+      -
+        status: 404
+        content: '{"message": "Booking not found"}'
+        headers: []
+        description: '404, booking not found'
+    responseFields: []

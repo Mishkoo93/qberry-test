@@ -1,0 +1,245 @@
+openapi: 3.0.3
+info:
+  title: 'Qberry Test API'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://127.0.0.1:8000'
+paths:
+  /api/bookings:
+    get:
+      summary: 'Get all bookings by user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"data\": [{\"id: 1, \"location\": \"Уилмингтон (Северная Каролина)\", \"temperature\": -5, \"reserved_blocks\": 10, \"reserved_to\": \"2022-05-31\", \"cost\": 12.5, \"access_code\": \"68iqeVTYcwKf\"},{\"id: 1, \"location\": \"Уилмингтон (Северная Каролина)\", \"temperature\": -5, \"reserved_blocks\": 10, \"reserved_to\": \"2022-05-31\", \"cost\": 12.5, \"access_code\": \"68iqeVTYcwKf\"}],\n}"
+      tags:
+        - 'Booking management'
+      security: []
+    post:
+      summary: 'Create a booking.'
+      description: 'Создание брони'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"data\": {\"id: 1, \"location\": \"Уилмингтон (Северная Каролина)\", \"temperature\": -5, \"reserved_blocks\": 10, \"reserved_to\": \"2022-05-31\", \"cost\": 12.5, \"access_code\": \"68iqeVTYcwKf\"},\n}"
+      tags:
+        - 'Booking management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                freeze_camera_id:
+                  type: integer
+                  description: ''
+                  example: 20
+                temperature:
+                  type: integer
+                  description: 'Must be at least -30. Must not be greater than 0.'
+                  example: 0
+                blocks:
+                  type: integer
+                  description: ''
+                  example: 13
+                days:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 24.'
+                  example: 4
+      security: []
+  '/api/bookings/{id}':
+    get:
+      summary: 'Display booking.'
+      description: 'Отобразить бронирование для входа с ключем доступа'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"data\": {\"id: 1, \"location\": \"Уилмингтон (Северная Каролина)\", \"temperature\": -5, \"reserved_blocks\": 10, \"reserved_to\": \"2022-05-31\", \"cost\": 12.5, \"access_code\": \"68iqeVTYcwKf\"},\n}"
+        404:
+          description: 'booking not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Booking not found'
+                properties:
+                  message:
+                    type: string
+                    example: 'Booking not found'
+      tags:
+        - 'Booking management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the booking.'
+        example: 8
+        required: true
+        schema:
+          type: integer
+  /api/locations:
+    get:
+      summary: 'Get all locations with free blocks'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  location: 'Уилмингтон (Северная Каролина)'
+                  free_blocks: 150
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  location:
+                    type: string
+                    example: 'Уилмингтон (Северная Каролина)'
+                  free_blocks:
+                    type: integer
+                    example: 150
+      tags:
+        - Locations
+      security: []
+  /api/locations/calculate:
+    post:
+      summary: 'Calculate cost and blocks'
+      description: "Возвращает freeze_camera_id подходящей камеры хранения или null в случае если\nподходящих камер не нашлось"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"blocks\": 4,\n \"cost\": 19.4,\n \"availability\": true,\n \"freeze_camera_id\": null|150,\n}"
+      tags:
+        - Locations
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location_id:
+                  type: integer
+                  description: ''
+                  example: 6
+                temperature:
+                  type: integer
+                  description: 'Must be at least -30. Must not be greater than 0.'
+                  example: 0
+                volume:
+                  type: integer
+                  description: ''
+                  example: 11
+                days:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 24.'
+                  example: 22
+      security: []
+tags:
+  -
+    name: 'Booking management'
+    description: "\nAPIs for managing bookings users"
+  -
+    name: Locations
+    description: "\nAPIs for managing with locations"
